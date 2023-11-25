@@ -1,19 +1,37 @@
-# Network Control Metrics
+# PyC_Controllability_Measurement
 
-This repository contains Python code for calculating control metrics in complex networks, specifically focusing on neural networks. The code computes Average and Modal Controllability metrics based on the adjacency matrices of these networks.
+## Overview
+"PyC_Controllability_Measurement" is a Python repository focused on computing key control metrics in network theory, particularly for complex systems like neural and social networks. It includes functions for calculating Average Controllability, Modal Controllability, and Time Constants of nodes within a network.
 
-## Features
-- Normalization of adjacency matrices.
-- Calculation of Average Controllability.
-- Calculation of Modal Controllability.
-- Extraction of time constants from normalized adjacency matrices.
+## Background
+Controllability in networks is crucial for understanding how individual nodes or elements influence the overall dynamics of a system. This repository provides tools to measure:
+- **Average Controllability (AC):** Assessing how easily the state of a node can be steered using input controls.
+- **Modal Controllability (MC):** Indicating a node's ability to move the system into various states.
+- **Time Constants:** Evaluating the system's response speed.
+
+## Installation
+Clone this repository and install the required packages using:
+```bash
+git clone https://github.com/[YourUsername]/PyC_Controllability_Measurement.git
+cd PyC_Controllability_Measurement
+pip install numpy pandas scipy
+```
 
 ## Usage
-The main functions are `PyC_AverageControl` and `PyC_ModalControl`, which take a normalized adjacency matrix as input and return control metrics for each node in the network.
+The repository includes functions for controllability analysis:
 
-## Dependencies
-- numpy
-- scipy
+- ** PyC_AverageControl: Computes AC for each network node.
+- ** PyC_ModalControl: Determines MC for each node.
+- ** Time Constant calculation using normalized adjacency matrices.
 
-## References
-The methodologies implemented here are based on the work done by the Bassett Lab, University of Pennsylvania, and can be found in the following paper: Gu, Pasqualetti, Cieslak, Telesford, Yu, Kahn, Medaglia, Vettel, Miller, Grafton & Bassett, Nature Communications 6:8414, 2015.
+```python
+Copy code
+import pandas as pd
+from controllability_functions import PyC_AverageControl, PyC_ModalControl, Normalization
+
+# Assuming your DataFrame 'df' contains an 'A_matrice' column with adjacency matrices
+df['A_Norm'] = df['A_matrice'].apply(Normalization)
+df['Average'] = df['A_matrice'].apply(PyC_AverageControl)
+df['Modal'] = df['A_matrice'].apply(PyC_ModalControl)
+df['TimeConstant'] = df['A_Norm'].apply(np.diag)
+```
