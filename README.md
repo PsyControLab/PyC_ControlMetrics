@@ -21,9 +21,9 @@ pip install numpy pandas scipy
 ## Usage
 The repository includes functions for controllability analysis:
 
-- **PyC_AverageControl: Computes AC for each network node.
-- **PyC_ModalControl: Determines MC for each node.
-- **Time Constant calculation using normalized adjacency matrices.
+- **PyC_AverageControl:** Computes AC for each network node.
+- **PyC_ModalControl:** Determines MC for each node.
+- **Time Constant** calculation using normalized adjacency matrices.
 
 ```python
 Copy code
