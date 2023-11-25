@@ -26,7 +26,7 @@ The repository includes functions for controllability analysis:
 - **Time Constant** calculation using normalized adjacency matrices.
 
 ```python
-Copy code
+
 import pandas as pd
 from PyC_ControlMetrics import PyC_AverageControl, PyC_ModalControl, Normalization
 
