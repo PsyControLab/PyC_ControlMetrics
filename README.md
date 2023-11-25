@@ -14,7 +14,7 @@ Controllability in networks is crucial for understanding how individual nodes or
 Clone this repository and install the required packages using:
 ```bash
 git clone https://github.com/PsyControl/PyC_ControlMetrics.git
-cd PyC_Controllability_Measurement
+cd PyC_ControlMetrics
 pip install numpy pandas scipy
 ```
 
