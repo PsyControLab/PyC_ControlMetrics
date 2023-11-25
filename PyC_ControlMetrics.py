@@ -40,7 +40,7 @@ def PyC_ModalControl(A):
         phi[i] = np.sum(U[i, :]**2 * (1 - eigVals**2))
     return phi
 
-def PyC_ControlMetrics(df, adjacency_col):
+def calculate_control_metrics(df, adjacency_col):
     """
     Calculate control metrics for a DataFrame containing adjacency matrices.
 
@@ -60,5 +60,5 @@ def PyC_ControlMetrics(df, adjacency_col):
 
 # Example usage:
 # df = pd.read_csv('your_data.csv') # Load your data
-# df = PyC_ControlMetrics(df, 'A_matrices')
+# df = calculate_control_metrics(df, 'A_matrices')
 # print(df.head())
