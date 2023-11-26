@@ -1,4 +1,4 @@
-# Network Control Metrics: Average and Modal Controllability
+# Network Control Metrics
 
 This repository contains Python functions for calculating Average Controllability (AC) and Modal Controllability (MC) in networks. These metrics are crucial in network theory, particularly for understanding the dynamics and control mechanisms in complex systems like neural or social networks.
 
