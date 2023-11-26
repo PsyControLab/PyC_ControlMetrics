@@ -93,7 +93,7 @@ To utilize the network control metrics functions in your projects, follow these 
         Index.append(i+1)
     
     # Melting the DataFrame for statistical analysis
-    df_melted = PyC_melted(df_control, 'TimeConstant', index='Index', group_column='Group', entity_ids='user_id')
+    df_melted = PyC_melted(df_control, 'TimeConstant', index=Index, group_column='Group', entity_ids='user_id')
     ```
 
 6. **Perform Statistical Tests**: Conduct statistical tests on the melted DataFrame.
