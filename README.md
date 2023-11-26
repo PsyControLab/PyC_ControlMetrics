@@ -26,12 +26,9 @@ This repository contains Python functions for calculating Average Controllabilit
 
 - **Definition**: Measures the system's speed of response, defined as the inverse of the system's eigenvalues.
 
-## Installation
 
+## Installation
 To use these functions, you need to have Python installed on your system along with the following libraries:
-
-
-## Installation
 Clone this repository and install the required packages using:
 ```bash
 git clone https://github.com/PsyControl/PyC_ControlMetrics.git
@@ -49,6 +46,13 @@ The repository includes functions for controllability analysis:
 ```python
 
 import pandas as pd
+import numpy as np
+from scipy.linalg import svdvals, schur
+from scipy import stats
+import statsmodels.api as sm
+import seaborn as sns
+import matplotlib.pyplot as plt
+from statannotations.Annotator import Annotator
 from PyC_ControlMetrics import *
 
 # Assuming your DataFrame 'df' contains an 'A_matrice' column with adjacency matrices
@@ -56,6 +60,17 @@ df['A_Norm'] = df['A_matrice'].apply(Normalization)
 df['Average'] = df['A_matrice'].apply(PyC_AverageControl)
 df['Modal'] = df['A_matrice'].apply(PyC_ModalControl)
 df['TimeConstant'] = df['A_Norm'].apply(np.diag)
+
+df_control = PyC_control_metrics(df, 'A_matrice')
+print(df_control.shape)
+df_control.head(df_control)
+
+df_melted = PyC_melted(df_control, 'TimeConstant', index = Index, group_column = 'Group',entity_ids = 'user_id')
+
+result_stat_test = PyC_stat_tests(df_melted, value='value', group_column='Group')
+
+PyC_comparison_plot(df_melted,'Group',result_stat_test, 'Y Axis Label', 'output_figure.jpg')
+
 ```
 
 ### Dependencies
