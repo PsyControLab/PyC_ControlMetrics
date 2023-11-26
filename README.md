@@ -88,6 +88,10 @@ To utilize the network control metrics functions in your projects, follow these 
 5. **Transform Data for Statistical Analysis**: Melt the DataFrame to prepare it for statistical tests.
 
     ```python
+    Index = []
+    for i in range(len(df_control['A_matrice'][0])):
+        Index.append(i+1)
+    
     # Melting the DataFrame for statistical analysis
     df_melted = PyC_melted(df_control, 'TimeConstant', index='Index', group_column='Group', entity_ids='user_id')
     ```
